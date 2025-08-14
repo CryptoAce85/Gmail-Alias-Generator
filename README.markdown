@@ -1,6 +1,6 @@
 # Gmail Alias Generator
 
-![Gmail Alias Generator](https://www.serif.ai/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F2knfd0au%2Fproduction%2Fe7ed374b4b9ce3f4e5fc0f0b2e6f0f7b2c6f0f7b-512x512.png&w=128&q=75)
+![Gmail Alias Generator](gmail-logo.png)
 
 A simple and stylish web app to generate all possible Gmail dot aliases for a given username. All aliases deliver to the same Gmail inbox, making it perfect for sign-ups, email filtering, or privacy.
 
