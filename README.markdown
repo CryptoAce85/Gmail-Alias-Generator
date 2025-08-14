@@ -1,10 +1,8 @@
 # Gmail Alias Generator
 
-![Gmail Alias Generator](gmail-logo.png)
-
 A simple and stylish web app to generate all possible Gmail dot aliases for a given username. All aliases deliver to the same Gmail inbox, making it perfect for sign-ups, email filtering, or privacy.
 
-# **[Visit the Live App](https://cryptoace85.github.io/Gmail-Alias-Generator/)**
+**[Visit the Live App](https://cryptoace85.github.io/Gmail-Alias-Generator/)**
 
 # Features
 
@@ -49,20 +47,11 @@ For a username with `n` characters, the app generates `2^(n-1)` aliases. For exa
    ```
 3. Open `index.html` in a browser to test locally.
 
-## Optional: Host the Gmail Logo Locally
-- Download the Gmail logo from [serif.ai/gmail-logo](https://www.serif.ai/gmail-logo).
-- Save as `gmail-logo.png` in the repo’s root or `assets/` folder.
-- Update `index.html` to reference the local logo:
-  ```html
-  <img src="gmail-logo.png" alt="Gmail Logo" class="h-10 mr-2 object-contain">
-  <link rel="icon" href="gmail-logo.png" type="image/png">
-  ```
-
 # Deployment
 
 The app is deployed on GitHub Pages. To deploy your own version:
 
-1. Push `index.html` (and `gmail-logo.png` if hosted locally) to your GitHub repository.
+1. Push `index.html` and `README.md` (and `screenshot.png` if added) to your GitHub repository.
 2. Enable GitHub Pages in Settings > Pages:
    - Set Source to `main` branch and `/root` directory.
 3. Access the app at `https://yourusername.github.io/Gmail-Alias-Generator/`.
@@ -90,7 +79,7 @@ Please ensure your changes align with the project’s style (Tailwind CSS, clean
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-**Note**: The Gmail logo is used under Google’s brand guidelines ([google.com/permissions/logo.html](https://www.google.com/permissions/logo.html)). Ensure compliance for commercial use.
+**Note**: Previously used Gmail logo has been removed; ensure compliance with Google’s brand guidelines if reintroduced ([google.com/permissions/logo.html](https://www.google.com/permissions/logo.html)).
 
 # Contact
 
