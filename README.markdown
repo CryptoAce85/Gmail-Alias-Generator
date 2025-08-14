@@ -2,7 +2,7 @@
 
 A simple and stylish web app to generate all possible Gmail dot aliases for a given username. All aliases deliver to the same Gmail inbox, making it perfect for sign-ups, email filtering, or privacy.
 
-**[Visit the Live App](https://cryptoace85.github.io/Gmail-Alias-Generator/)**
+# **[Visit the Live App](https://cryptoace85.github.io/Gmail-Alias-Generator/)**
 
 # Features
 
