@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gmail Alias Generator by CryptoAce85</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <!-- Inter font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Favicon (Gmail logo as favicon) -->
+    <link rel="icon" href="https://www.serif.ai/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F2knfd0au%2Fproduction%2Fe7ed374b4b9ce3f4e5fc0f0b2e6f0f7b2c6f0f7b-512x512.png&w=128&q=75" type="image/png">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #1e3a8a, #6b21a8);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .btn-primary {
+            background-color: #4f46e5;
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #4338ca;
+        }
+        .btn-secondary {
+            background-color: #10b981;
+            transition: background-color 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background-color: #059669;
+        }
+        .loading {
+            display: none;
+            color: #4f46e5;
+            font-size: 1.5rem;
+        }
+        textarea:focus, input:focus {
+            outline: none;
+            ring: 2px solid #4f46e5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mx-auto px-4 py-12">
+        <div class="max-w-2xl mx-auto card p-6">
+            <div class="text-center mb-6">
+                <h1 class="text-3xl font-bold text-gray-800 flex items-center justify-center">
+                    <img src="https://www.serif.ai/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F2knfd0au%2Fproduction%2Fe7ed374b4b9ce3f4e5fc0f0b2e6f0f7b2c6f0f7b-512x512.png&w=128&q=75" alt="Gmail Logo" class="h-10 mr-2 object-contain">
+                    Gmail Alias Generator
+                </h1>
+                <p class="text-gray-600 mt-4">Generate unique aliases for your Gmail account with ease.</p>
+            </div>
+            <div class="mb-6">
+                <label for="username" class="block text-sm font-medium text-gray-700 mb-2">
+                    Gmail Username
+                </label>
+                <div class="flex rounded-md shadow-sm">
+                    <input
+                        type="text"
+                        id="username"
+                        class="flex-1 block w-full rounded-l-md border-gray-300 focus:ring-2 focus:ring-indigo-500 sm:text-sm p-3"
+                        placeholder="e.g., viralbeatsbyai"
+                        aria-describedby="gmail-suffix"
+                    />
+                    <span class="inline-flex items-center px-3 rounded-r-md border border-l-0 border-gray-300 bg-gray-50 text-gray-500 sm:text-sm">
+                        @gmail.com
+                    </span>
+                </div>
+            </div>
+            <div class="mb-6">
+                <button
+                    id="generate"
+                    class="w-full btn-primary text-white font-semibold py-2 px-4 rounded-md"
+                    aria-label="Generate email variations"
+                >
+                    <i class="fas fa-sync-alt mr-2"></i> Generate Emails
+                </button>
+            </div>
+            <div class="mb-6">
+                <div class="flex justify-between items-center mb-2">
+                    <label for="emails" class="block text-sm font-medium text-gray-700">
+                        Generated Emails
+                    </label>
+                    <span id="counter" class="text-sm text-gray-600">Generated: 0</span>
+                </div>
+                <textarea
+                    id="emails"
+                    rows="12"
+                    class="w-full border-gray-300 rounded-md p-3 text-sm bg-gray-50"
+                    readonly
+                    aria-label="Generated Gmail variations"
+                ></textarea>
+                <div id="loading" class="loading text-center mt-2">
+                    <i class="fas fa-spinner fa-spin"></i> Generating...
+                </div>
+            </div>
+            <div class="flex justify-center space-x-4">
+                <button
+                    id="save"
+                    class="btn-secondary text-white font-semibold py-2 px-4 rounded-md"
+                    aria-label="Download generated emails as text file"
+                >
+                    <i class="fas fa-download mr-2"></i> Save as TXT
+                </button>
+                <button
+                    id="copy"
+                    class="btn-secondary text-white font-semibold py-2 px-4 rounded-md"
+                    aria-label="Copy all generated emails to clipboard"
+                >
+                    <i class="fas fa-copy mr-2"></i> Copy all
+                </button>
+            </div>
+            <div class="text-center mt-4">
+                <p class="text-gray-700 font-semibold">
+                    Developed by CryptoAce85
+                    <a href="https://github.com/CryptoAce85" target="_blank" aria-label="CryptoAce85 GitHub Profile">
+                        <i class="fab fa-github ml-2"></i>
+                    </a>
+                </p>
+                <p class="text-sm text-gray-500 mt-1">
+                    Made with ❤️ | All variations deliver to your main inbox.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- FileSaver.js for downloading the TXT file -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script>
+        const counterLabel = document.getElementById("counter");
+        const emailsTextarea = document.getElementById("emails");
+        const generateButton = document.getElementById("generate");
+        const saveButton = document.getElementById("save");
+        const copyButton = document.getElementById("copy");
+        const usernameInput = document.getElementById("username");
+        const loadingIndicator = document.getElementById("loading");
+        let count = 0;
+
+        function* generate(email) {
+            if (email.length <= 1) {
+                yield email;
+            } else {
+                let head = email[0];
+                let tail = email.slice(1);
+                for (let item of generate(tail)) {
+                    yield head + item;
+                    yield head + '.' + item;
+                }
+            }
+        }
+
+        function updateEmails() {
+            const username = usernameInput.value.trim();
+            emailsTextarea.value = '';
+            count = 0;
+            counterLabel.innerText = 'Generated: 0';
+            loadingIndicator.style.display = 'block';
+
+            setTimeout(() => {
+                if (username.length < 2) {
+                    loadingIndicator.style.display = 'none';
+                    alert('Please enter a username with at least 2 characters.');
+                    return;
+                }
+
+                const startTime = new Date();
+                for (let message of generate(username)) {
+                    emailsTextarea.value += message + '@gmail.com\n';
+                    count += 1;
+                    counterLabel.innerText = 'Generated: ' + count;
+                }
+                emailsTextarea.value = emailsTextarea.value.slice(0, -1); // Remove trailing newline
+                loadingIndicator.style.display = 'none';
+
+                const endTime = new Date();
+                console.log('Finished in ' + (endTime - startTime) + 'ms');
+            }, 100);
+        }
+
+        generateButton.onclick = updateEmails;
+
+        saveButton.onclick = function() {
+            if (emailsTextarea.value.trim() === '') {
+                alert('Generate emails first!');
+                return;
+            }
+            const blob = new Blob([emailsTextarea.value], {
+                type: "text/plain;charset=utf-8",
+                endings: "transparent"
+            });
+            saveAs(blob, (usernameInput.value || "gmail") + "_variations.txt");
+        };
+
+        copyButton.onclick = function() {
+            if (emailsTextarea.value.trim() === '') {
+                alert('Generate emails first!');
+                return;
+            }
+            navigator.clipboard.writeText(emailsTextarea.value)
+                .then(() => {
+                    alert('Emails copied to clipboard!');
+                })
+                .catch(() => {
+                    alert('Failed to copy emails. Please try selecting and copying manually.');
+                });
+        };
+    </script>
+</body>
+</html>
