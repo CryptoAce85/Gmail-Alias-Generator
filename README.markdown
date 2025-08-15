@@ -29,6 +29,7 @@ For a username with `n` characters, the app generates `2^(n-1)` aliases. For exa
 4. View the aliases in the textarea, with a counter showing the total.
 5. Use the **Save as TXT** button to download the aliases as a `.txt` file.
 6. Use the **Copy all** button to copy the aliases to your clipboard for pasting elsewhere as Google Keep.
+7. Use the generated Gmails for signing up to trial periods or testing trials on various websites. 😎
 
 # Screenshots
 
